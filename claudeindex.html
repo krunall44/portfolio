@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name — Interior Design Portfolio 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f5ede4;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      color: #3a2e28;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      border-bottom: 1px solid rgba(180,140,120,0.25);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #3a2e28;
+      text-decoration: none;
+    }
+    nav ul { display: flex; gap: 28px; list-style: none; }
+    nav a {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a7a70;
+      text-decoration: none;
+    }
+    nav a:hover { color: #c49090; }
+
+    /* ── COVER ── */
+    #cover {
+      text-align: center;
+      padding: 90px 40px 70px;
+      border-bottom: 1px solid rgba(180,140,120,0.25);
+      position: relative;
+    }
+    .cover-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #c49090;
+      margin-bottom: 20px;
+    }
+    .cover-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 400;
+      color: #3a2e28;
+      line-height: 1;
+    }
+    .cover-name em { font-style: italic; color: #c49090; }
+    .cover-sub {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #8a7a70;
+      margin-top: 14px;
+    }
+    /* simple border frame */
+    .cover-frame {
+      display: inline-block;
+      border: 1px solid rgba(196,160,150,0.4);
+      padding: 40px 80px 32px;
+      margin: 12px 0 28px;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 24px 0;
+      color: #c49090;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      width: 80px;
+      height: 1px;
+      background: rgba(196,160,150,0.4);
+    }
+
+    /* ── SECTION ── */
+    section { padding: 60px 48px; }
+    section.alt { background: #f0e6da; }
+
+    .sec-label {
+      text-align: center;
+      font-size: 0.6rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #c49090;
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      text-align: center;
+      color: #3a2e28;
+      margin-bottom: 8px;
+    }
+    .sec-title em { font-style: italic; color: #c49090; }
+    .sec-sub {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #8a7a70;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* ── PHOTO GRID LAYOUTS ── */
+    /* Full width */
+    .img-full {
+      width: 100%;
+      aspect-ratio: 16/7;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Two col */
+    .img-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    /* Three col */
+    .img-row-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    /* Big + small */
+    .img-row-big-small {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .img-row-big-small.flip {
+      grid-template-columns: 1fr 2fr;
+    }
+    /* Stacked pair */
+    .img-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Image box */
+    .img-box {
+      overflow: hidden;
+      position: relative;
+      background: #d4b8a0;
+    }
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Colored border variants */
+    .b-pink  { outline: 3px solid #d4a0a0; }
+    .b-green { outline: 3px solid #8a9e80; }
+    .b-red   { outline: 3px solid #b04040; }
+    .b-gold  { outline: 3px solid #c4a060; }
+    .b-brown { outline: 3px solid #7a5c4a; }
+
+    /* placeholder colours */
+    .p1 { background: linear-gradient(135deg, #d4b8a0, #a08060); }
+    .p2 { background: linear-gradient(160deg, #c8d0b8, #7a9068); }
+    .p3 { background: linear-gradient(135deg, #d8c8c0, #906870); }
+    .p4 { background: linear-gradient(160deg, #d0c8b8, #88806a); }
+    .p5 { background: linear-gradient(135deg, #c8d8d4, #507878); }
+    .p6 { background: linear-gradient(160deg, #e0d4c0, #a07840); }
+    .p7 { background: linear-gradient(135deg, #d4d0e0, #887898); }
+    .p8 { background: linear-gradient(160deg, #e0ccc0, #a07868); }
+
+    /* Caption under images */
+    .caption {
+      text-align: center;
+      margin-top: 16px;
+    }
+    .caption .num {
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #c49090;
+      margin-bottom: 4px;
+    }
+    .caption .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #3a2e28;
+    }
+    .caption .name em { font-style: italic; }
+    .caption .meta {
+      font-size: 0.7rem;
+      color: #8a7a70;
+      margin-top: 3px;
+    }
+
+    /* ── PROJECT BLOCK ── */
+    .project-block {
+      margin-bottom: 56px;
+    }
+    .project-block:last-child { margin-bottom: 0; }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-photo::after {
+      content: '';
+      position: absolute;
+      top: 12px; left: 12px; right: -12px; bottom: -12px;
+      border: 1px solid #d4a0a0;
+      z-index: -1;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-text .sec-title { text-align: left; }
+    .about-text .sec-label { text-align: left; }
+    .about-body {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #5a4a40;
+      margin-bottom: 12px;
+    }
+    .about-info {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .about-info-item {
+      padding: 14px 16px;
+      border: 1px solid rgba(180,140,120,0.25);
+      background: rgba(255,255,255,0.3);
+    }
+    .about-info-label {
+      font-size: 0.57rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c49090;
+      margin-bottom: 5px;
+    }
+    .about-info-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: #3a2e28;
+    }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    .contact-box {
+      display: inline-block;
+      max-width: 580px;
+      width: 100%;
+      border: 1px solid rgba(180,140,120,0.3);
+      padding: 52px 64px;
+      background: rgba(255,255,255,0.3);
+      text-align: left;
+      margin-top: 20px;
+    }
+    .contact-row {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(180,140,120,0.2);
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-label {
+      font-size: 0.57rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c49090;
+      margin-bottom: 6px;
+    }
+    .contact-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #3a2e28;
+    }
+    .contact-value a {
+      color: #3a2e28;
+      text-decoration: none;
+    }
+    .contact-value a:hover { color: #c49090; }
+    .social-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      justify-content: center;
+    }
+    .social-row a {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a7a70;
+      text-decoration: none;
+      padding: 7px 18px;
+      border: 1px solid rgba(180,140,120,0.3);
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .social-row a:hover { color: #c49090; border-color: #c49090; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #3a2e28;
+      color: rgba(245,237,228,0.55);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+    footer .f-name {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(245,237,228,0.85);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      nav ul { gap: 16px; }
+      section { padding: 48px 20px; }
+      #cover { padding: 80px 20px 48px; }
+      .cover-frame { padding: 28px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .img-row-2, .img-row-3, .img-row-big-small, .img-row-big-small.flip {
+        grid-template-columns: 1fr;
+      }
+      .contact-box { padding: 36px 24px; }
+      footer { flex-direction: column; gap: 10px; text-align: center; }
+      .about-info { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Your Name</a>
+  <ul>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- COVER -->
+<div id="cover">
+  <p class="cover-tag">Interior Design Portfolio · 2025</p>
+  <div class="cover-frame">
+    <h1 class="cover-name">Your <em>Name</em></h1>
+    <p class="cover-sub">Creating spaces that feel like home</p>
+  </div>
+  <div class="divider">✦</div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="sec-label">Selected Works</p>
+  <h2 class="sec-title">Projects & <em>Portfolio</em></h2>
+  <p class="sec-sub">A curated collection of completed spaces</p>
+
+  <!-- PROJECT 01 -->
+  <div class="project-block">
+    <!-- Full width hero image -->
+    <div class="img-full img-box b-pink p1">
+      <!--
+        HOW TO ADD YOUR PHOTO:
+        Delete the line above (class="img-full img-box b-pink p1")
+        and replace with:
+        <div class="img-full img-box b-pink">
+          <img src="your-photo.jpg" alt="Project 1">
+        </div>
+      -->
+    </div>
+
+    <!-- Three detail photos below -->
+    <div class="img-row-3">
+      <div class="img-box b-green p2" style="aspect-ratio:4/3;">
+        <!-- <img src="detail1.jpg" alt=""> -->
+      </div>
+      <div class="img-box p3" style="aspect-ratio:4/3;">
+        <!-- <img src="detail2.jpg" alt=""> -->
+      </div>
+      <div class="img-box b-pink p4" style="aspect-ratio:4/3;">
+        <!-- <img src="detail3.jpg" alt=""> -->
+      </div>
+    </div>
+
+    <div class="caption">
+      <p class="num">Project 01</p>
+      <h3 class="name">The <em>Amber Residence</em></h3>
+      <p class="meta">Residential · Hanoi, Vietnam · 2024</p>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- PROJECT 02 -->
+  <div class="project-block">
+    <p class="sec-label">Project 02</p>
+    <h3 class="sec-title" style="font-size:1.8rem;">Verdure <em>Café</em></h3>
+    <p class="sec-sub">Commercial · Ho Chi Minh City · 2024</p>
+
+    <div class="img-row-big-small">
+      <div class="img-box b-red p5" style="aspect-ratio:4/5;">
+        <!-- <img src="p2-main.jpg" alt=""> -->
+      </div>
+      <div class="img-stack">
+        <div class="img-box p6" style="flex:1; min-height:160px;">
+          <!-- <img src="p2-a.jpg" alt=""> -->
+        </div>
+        <div class="img-box b-green p2" style="flex:1; min-height:160px;">
+          <!-- <img src="p2-b.jpg" alt=""> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- PROJECT 03 -->
+  <div class="project-block">
+    <p class="sec-label">Project 03</p>
+    <h3 class="sec-title" style="font-size:1.8rem;"><em>Lilac</em> Studio Apartment</h3>
+    <p class="sec-sub">Residential · Hội An · 2023</p>
+
+    <div class="img-row-2">
+      <div class="img-box b-pink p7" style="aspect-ratio:4/3;">
+        <!-- <img src="p3-a.jpg" alt=""> -->
+      </div>
+      <div class="img-box p8" style="aspect-ratio:4/3;">
+        <!-- <img src="p3-b.jpg" alt=""> -->
+      </div>
+    </div>
+    <div class="img-row-3" style="margin-top:12px;">
+      <div class="img-box p3" style="aspect-ratio:1/1;">
+        <!-- <img src="p3-c.jpg" alt=""> -->
+      </div>
+      <div class="img-box b-gold p1" style="aspect-ratio:1/1;">
+        <!-- <img src="p3-d.jpg" alt=""> -->
+      </div>
+      <div class="img-box p5" style="aspect-ratio:1/1;">
+        <!-- <img src="p3-e.jpg" alt=""> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- PROJECT 04 -->
+  <div class="project-block">
+    <div class="img-row-big-small flip">
+      <div class="img-stack">
+        <div class="img-box p4" style="flex:1; min-height:160px;">
+          <!-- <img src="p4-a.jpg" alt=""> -->
+        </div>
+        <div class="img-box b-pink p6" style="flex:1; min-height:160px;">
+          <!-- <img src="p4-b.jpg" alt=""> -->
+        </div>
+      </div>
+      <div class="img-box b-brown p2" style="aspect-ratio:4/5;">
+        <!-- <img src="p4-main.jpg" alt=""> -->
+      </div>
+    </div>
+    <div class="caption">
+      <p class="num">Project 04</p>
+      <h3 class="name">Terra <em>Boutique Hotel</em></h3>
+      <p class="meta">Hospitality · Đà Nẵng · 2023</p>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- PROJECT 05 -->
+  <div class="project-block">
+    <div class="img-full img-box b-gold p2">
+      <!-- <img src="p5-main.jpg" alt=""> -->
+    </div>
+    <div class="caption">
+      <p class="num">Project 05</p>
+      <h3 class="name">Sage <em>Penthouse</em></h3>
+      <p class="meta">Residential · Hanoi, Vietnam · 2023</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="about-grid">
+    <div class="about-photo p3">
+      <!--
+        Replace with your portrait:
+        <img src="your-photo.jpg" alt="Your Name">
+      -->
+    </div>
+    <div class="about-text">
+      <p class="sec-label">About</p>
+      <h2 class="sec-title" style="text-align:left;">Design with <em>Intention</em></h2>
+      <br>
+      <p class="about-body">
+        I'm [Your Name] — an interior designer based in Vietnam. I create spaces that feel both beautiful and deeply personal, drawing from natural materials, warmth, and thoughtful storytelling.
+      </p>
+      <p class="about-body">
+        Every project begins with listening. I want to understand how you live, what brings you calm, and what inspires you — then we shape a space that is unmistakably yours.
+      </p>
+      <div class="about-info">
+        <div class="about-info-item">
+          <div class="about-info-label">Based in</div>
+          <div class="about-info-value">Hanoi, Vietnam</div>
+        </div>
+        <div class="about-info-item">
+          <div class="about-info-label">Specialization</div>
+          <div class="about-info-value">Residential & Commercial</div>
+        </div>
+        <div class="about-info-item">
+          <div class="about-info-label">Experience</div>
+          <div class="about-info-value">6 Years</div>
+        </div>
+        <div class="about-info-item">
+          <div class="about-info-label">Projects</div>
+          <div class="about-info-value">48+ Completed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="sec-label">Get in Touch</p>
+  <h2 class="sec-title">Let's <em>Connect</em></h2>
+  <p class="sec-sub">Open for new projects and collaborations</p>
+
+  <div style="display:flex; justify-content:center;">
+    <div class="contact-box">
+      <div class="contact-row">
+        <p class="contact-label">Email</p>
+        <p class="contact-value"><a href="mailto:hello@yourname.com">hello@yourname.com</a></p>
+      </div>
+      <div class="contact-row">
+        <p class="contact-label">Phone / Zalo</p>
+        <p class="contact-value"><a href="tel:+84900000000">+84 90 000 0000</a></p>
+      </div>
+      <div class="contact-row">
+        <p class="contact-label">Location</p>
+        <p class="contact-value">Hanoi, Vietnam</p>
+      </div>
+      <div class="contact-row">
+        <p class="contact-label">Available for</p>
+        <p class="contact-value">Residential & Commercial Projects</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-row">
+    <a href="#">Instagram</a>
+    <a href="#">Behance</a>
+    <a href="#">Pinterest</a>
+    <a href="#">Facebook</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-name">Your Name</span>
+  <span>© 2025 All Rights Reserved</span>
+  <span>Interior Design Portfolio</span>
+</footer>
+
+</body>
+</html>
