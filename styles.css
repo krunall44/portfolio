@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 70vh;
+  background: url('images/p2_main.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  z-index: 2;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  z-index: 2;
+}
+
+/* GALLERY */
+.gallery {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.project img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.project h3 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+footer a {
+  color: #ddd;
+}
